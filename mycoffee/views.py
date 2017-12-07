@@ -3,7 +3,7 @@ from .forms import Signup, Login
 from django.contrib.auth import authenticate, login, logout
 
 
-def signup(request):
+def Usersignup(request):
 	context = {}
 	form = Signup()
 	context['form'] = form
@@ -24,11 +24,11 @@ def signup(request):
 		return redirect("mycoffee:signup")
 	return render(request, 'signup.html', context)
 
-def login(request):
+def Userlogin(request):
 	context = {}
 	form = Login()
 	context['form'] = form
-	if request.method = 'POST':
+	if request.method == 'POST':
 		form = Login(request.POST)
 		if form.is_valid():
 			username = form.cleaned_data['username']
@@ -42,6 +42,6 @@ def login(request):
 	return render(request, 'login.html', context)
 
 
-def logout(request):
+def Userlogout(request):
 	logout(request)
 	return redirect("mycoffee:coffeelist")

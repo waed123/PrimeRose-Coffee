@@ -7,7 +7,7 @@ class Signup(forms.ModelForm):
 		fields = ['username', 'password']
 
 		widgets = {
-			'password': froms.PasswordInput(),
+			'password': forms.PasswordInput(),
 		}
 
 class Login(forms.Form):
