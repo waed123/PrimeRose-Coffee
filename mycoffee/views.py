@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import Signup, Login, CoffeeForm
 from django.contrib.auth import authenticate, login, logout
+from decimal import Decimal
 
 
 def Usersignup(request):
@@ -62,8 +63,9 @@ def coffee_price(instance):
 
 def create_coffee(request):
 	context = {}
-	if not request.user.is_authenticated():
+	if not request.user.is_authenticated:
 		return redirect("mycoffee:login")
+		
 	form = CoffeeForm()
 	if request.method == "POST":
 		form = CoffeeForm(request.POST)

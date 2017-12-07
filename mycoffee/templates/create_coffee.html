@@ -3,7 +3,7 @@
 
 {% block content %}
 
-	<form action="{% url 'mycoffee:create_coffee' %}" method="POST">
+	<form action="{% url 'mycoffee:create_coffee' %}" method="post">
 		{% csrf_token %}
 
 		{{form|crispy}}
