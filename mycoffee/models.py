@@ -31,11 +31,11 @@ class Powder(models.Model):
 
 
 class Coffee(models.Model):
-	user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+	user = models.ForeignKey(User, on_delete=models.CASCADE)
 	name = models.CharField(max_length=200)
 	espresso_shots = models.PositiveIntegerField(default=1)
-	bean = models.ForeignKey(Bean, on_delete=models.DO_NOTHING)
-	boast = models.ForeignKey(Roast, on_delete=models.DO_NOTHING)
+	bean = models.ForeignKey(Bean, on_delete=models.CASCADE)
+	boast = models.ForeignKey(Roast, on_delete=models.CASCADE)
 	syrups = models.ManyToManyField(Syrup, blank=True)
 	powders = models.ManyToManyField(Powder, blank=True)
 	water = models.FloatField()
