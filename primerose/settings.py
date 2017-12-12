@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'mycoffee',
     'crispy_forms',
+    'sala',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

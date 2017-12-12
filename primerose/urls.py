@@ -19,4 +19,5 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mycoffee.urls', namespace="mycoffee")),
+    path('cart/', include('sala.urls', namespace="cart")),
 ]

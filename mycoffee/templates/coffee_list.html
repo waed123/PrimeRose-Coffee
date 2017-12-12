@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+		{% for coffee in coffee_list %}
+			<div class="card" style="width: 20;">
+				<div class="card-body">
+					<h4 class="card-title">{{coffee.name}}</h4>
+					<h6 class="card-subtitle mb-2 text-muted">{{coffee.price}}</h6>
+					<a href="{% url 'mycoffee:coffee_detail' pk=coffee.pk %}" class="card-link">Details</a>
+					<!--pass GET parameters to the view using get method and hidden inputs-->
+					<p>
+						<form action="{% url 'cart:add' %}" method="GET">
+							<input type="hidden" name="item_id" value="{{coffee.id}}"/>
+							<input type="hidden" class="item-qty" name="qty" value="1"/>
+							<input type="submit" class="card-link" value="Add to Cart"/>
+						</form>
+					</p>
+				</div>
+			</div>
+		{% endfor %}
+{% endblock content %}
